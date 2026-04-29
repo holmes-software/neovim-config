@@ -1,3 +1,9 @@
+local status_ok, mason = pcall(require, "mason")
+if not status_ok then
+    print("Failed to load mason")
+    return
+end
+
 local servers = {
     "asm_lsp",
     "bashls",
@@ -24,26 +30,7 @@ local servers = {
     "zls",
 }
 
-local servers_to_ensure_installed = {}
-local excluded_from_check = {
-    "zls",
-    "rust",
-    "gdscript",
-}
-for _, s in pairs(servers) do
-    local is_excluded = false
-    for _, e in pairs(excluded_from_check) do
-        if e == s then
-            is_excluded = true
-            break
-        end
-    end
-    if not is_excluded then
-        table.insert(servers_to_ensure_installed, s)
-    end
-end
-
-require("mason").setup({
+mason.setup({
     ui = {
         border = "none",
         icons = {
@@ -54,12 +41,6 @@ require("mason").setup({
     },
     log_level = vim.log.levels.INFO,
     max_concurrent_installers = 4,
-})
-
-require("mason-lspconfig").setup({
-    ensure_installed = servers_to_ensure_installed,
-    automatic_installation = true,
-    automatic_enable = false,
 })
 
 local servers_to_enable = {}
