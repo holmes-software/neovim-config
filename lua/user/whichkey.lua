@@ -4,11 +4,6 @@ if not status_ok then
     return
 end
 
-local status_ok_opencode, opencode = pcall(require, "opencode")
-if not status_ok_opencode then
-    print("Failed to load opencode")
-end
-
 local setup = {
     plugins = {
         marks = true, -- shows a list of your marks on ' and `
@@ -274,32 +269,6 @@ which_key.add({
         "<leader>gu",
         "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
         desc = "Undo Stage Hunk",
-    },
-    { "<leader>o", group = "OpenCode" },
-    {
-        "<leader>oa",
-        function() opencode.ask("@this: ", { submit = true }) end,
-        desc = "Ask opencode",
-        mode = { "n", "x" },
-    },
-    {
-        "<leader>os",
-        function() opencode.select() end,
-        desc = "Execute opencode action",
-        mode = { "n", "x" },
-    },
-    {
-        "<leader>or",
-        function() return opencode.operator("@this ") end,
-        desc = "Add range to opencode",
-        mode = { "n", "x" },
-        expr = true,
-    },
-    {
-        "<leader>ol",
-        function() return opencode.operator("@this ") .. "_" end,
-        desc = "Add line to opencode",
-        expr = true,
     },
     {
         "<leader>O",
