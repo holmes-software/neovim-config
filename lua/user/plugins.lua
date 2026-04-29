@@ -38,13 +38,12 @@ require("lazy").setup({
         end
     },
     { "tamton-aquib/duck.nvim" }, -- Absolutely not useful...
-    { "HiPhish/rainbow-delimiters.nvim" },
     {
-        "windwp/nvim-autopairs",
+        "HiPhish/rainbow-delimiters.nvim",
         config = function()
-            require("user.autopairs")
+            require("user.rainbow_delimiters")
         end
-    }, -- Autopairs, integrates with both cmp and treesitter
+    },
     { "kyazdani42/nvim-web-devicons" },
     {
         "kyazdani42/nvim-tree.lua",
