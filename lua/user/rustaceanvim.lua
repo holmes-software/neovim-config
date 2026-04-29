@@ -26,6 +26,9 @@ vim.g.rustaceanvim = {
         default_settings = {
             -- rust-analyzer language server configuration
             ["rust-analyzer"] = {
+                trace = {
+                    server = "off",
+                },
                 cargo = {
                     -- desired target as string, if target is different than host
                     target_os = nil,
