@@ -302,6 +302,11 @@ which_key.add({
         expr = true,
     },
     {
+        "<leader>O",
+        "<cmd>!xdg-open %<cr>",
+        desc = "Open current file with system-default application"
+    },
+    {
         "<leader>h",
         "<cmd>nohlsearch<CR><cmd>lua require('mini.map').refresh()<CR>",
         desc = "No Highlight",
