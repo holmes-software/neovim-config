@@ -142,6 +142,33 @@ which_key.add({
         "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
         desc = "Buffers",
     },
+    { "<leader>c", group = "Copy" }, -- Copies things to clipboard
+    {
+        -- Includes line number
+        -- Example result: /home/josh/my-project/my-module/main.py:86
+        "<leader>ca",
+        "<cmd>lua require('user.copy').absolute_path()<cr>",
+        desc = "Copy absolute file path",
+    },
+    {
+        "<leader>cf",
+        "<cmd>lua require('user.copy').file_contents()<cr>",
+        desc = "Copy entire file contents",
+    },
+    {
+        -- Includes line number
+        -- Example result: main.py:86
+        "<leader>cn",
+        "<cmd>lua require('user.copy').file_name()<cr>",
+        desc = "Copy file name",
+    },
+    {
+        -- Includes line number
+        -- Example result: my-module/main.py:86
+        "<leader>cr",
+        "<cmd>lua require('user.copy').relative_path()<cr>",
+        desc = "Copy relative file path",
+    },
     { "<leader>d", group = "Debug" },
     {
         "<leader>db",
